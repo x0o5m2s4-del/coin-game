@@ -23,16 +23,18 @@
 
     <div id="start-screen">
 
-      <input
-        type="text"
-        id="studentId"
-        placeholder="학번 입력"
-      />
-
+      <!-- 이름 먼저 -->
       <input
         type="text"
         id="name"
         placeholder="이름 입력"
+      />
+
+      <!-- 학번 아래 -->
+      <input
+        type="text"
+        id="studentId"
+        placeholder="학번 입력"
       />
 
       <select id="choice">
@@ -61,11 +63,6 @@
 
     <div id="game-screen">
 
-      <h2>
-        결과:
-        <span id="score">0</span>점
-      </h2>
-
       <div id="coin">
         🪙
       </div>
@@ -74,7 +71,7 @@
         동전 던지기
       </button>
 
-      <p id="result-text"></p>
+      <h2 id="result-text"></h2>
 
     </div>
 
