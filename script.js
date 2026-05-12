@@ -33,7 +33,7 @@ function startGame() {
 
   if (!studentId || !name || !choice) {
 
-    alert("학번, 이름, 선택을 모두 입력해줘!");
+    alert("이름, 학번, 선택을 모두 입력해줘!");
 
     return;
 
@@ -56,11 +56,18 @@ async function flipCoin() {
       ? "앞면"
       : "뒷면";
 
-  document.getElementById("coin")
-    .textContent =
-      result === "앞면"
-        ? "🙂"
-        : "🦁";
+  const coin =
+    document.getElementById("coin");
+
+
+
+  // 던져진 결과 그림
+  coin.textContent =
+    result === "앞면"
+      ? "🙂"
+      : "🦁";
+
+
 
   let score = 0;
 
@@ -80,11 +87,15 @@ async function flipCoin() {
 
   }
 
+
+
   const studentId =
     document.getElementById("studentId").value;
 
   const name =
     document.getElementById("name").value;
+
+
 
   await db.collection("coinGame").add({
 
