@@ -20,18 +20,22 @@ const db = firebase.firestore();
 
 let selectedChoice = "";
 
-function startGame() {
 
-  const studentId =
-    document.getElementById("studentId").value.trim();
+
+function startGame() {
 
   const name =
     document.getElementById("name").value.trim();
 
+  const studentId =
+    document.getElementById("studentId").value.trim();
+
   const choice =
     document.getElementById("choice").value;
 
-  if (!studentId || !name || !choice) {
+
+
+  if (!name || !studentId || !choice) {
 
     alert("이름, 학번, 선택을 모두 입력해줘!");
 
@@ -39,15 +43,25 @@ function startGame() {
 
   }
 
+
+
   selectedChoice = choice;
 
+
+
+  // 시작화면 숨기기
   document.getElementById("start-screen")
     .style.display = "none";
 
+
+
+  // 게임화면 보이기
   document.getElementById("game-screen")
     .style.display = "block";
 
 }
+
+
 
 async function flipCoin() {
 
@@ -56,20 +70,29 @@ async function flipCoin() {
       ? "앞면"
       : "뒷면";
 
+
+
   const coin =
     document.getElementById("coin");
 
 
 
-  // 던져진 결과 그림
-  coin.textContent =
-    result === "앞면"
-      ? "🙂"
-      : "🦁";
+  // 동전 결과 표시
+  if (result === "앞면") {
+
+    coin.textContent = "🙂";
+
+  } else {
+
+    coin.textContent = "🦁";
+
+  }
 
 
 
   let score = 0;
+
+
 
   if (result === selectedChoice) {
 
@@ -89,19 +112,20 @@ async function flipCoin() {
 
 
 
-  const studentId =
-    document.getElementById("studentId").value;
-
   const name =
     document.getElementById("name").value;
 
+  const studentId =
+    document.getElementById("studentId").value;
 
 
+
+  // Firebase 저장
   await db.collection("coinGame").add({
 
-    studentId: studentId,
-
     name: name,
+
+    studentId: studentId,
 
     choice: selectedChoice,
 
