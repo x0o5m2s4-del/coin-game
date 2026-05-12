@@ -34,7 +34,7 @@ select {
 
   width: 220px;
 
-  margin: 10px auto;
+  margin: 12px auto;
 
   padding: 12px;
 
@@ -70,22 +70,26 @@ button {
 
   display: none;
 
-  margin-top: 20px;
+  margin-top: 30px;
 
 }
 
 #coin {
 
-  margin-top: 20px;
+  margin-top: 25px;
 
-  font-size: 90px;
+  font-size: 100px;
 
 }
 
 #result-text {
 
-  margin-top: 20px;
+  margin-top: 25px;
 
-  font-size: 22px;
+  font-size: 28px;
+
+  color: #4d8fe0;
+
+  font-weight: bold;
 
 }
